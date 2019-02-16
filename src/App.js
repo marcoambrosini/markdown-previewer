@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react"
+import "./App.css"
+import marked from "marked"
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+export default function App() {
+  const [input, setInput] = useState("")
+  const [output, setOutput] = useState("")
+
+  function handleInputChange(e) {
+    setInput(e.target.value)
   }
-}
 
-export default App;
+  function parseInput(input) {
+    setOutput(marked(input))
+  }
+
+  useEffect(() => {
+    parseInput(input)
+  })
+
+  return (
+    <div>
+      <div>
+        <textarea
+          id="editor"
+          placeholder="put your text here"
+          onChange={handleInputChange}
+        />
+      </div>
+      <div id="preview" dangerouslySetInnerHTML={{ __html: output }} />
+    </div>
+  )
+}
