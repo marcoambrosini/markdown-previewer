@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react"
 import "./App.css"
 import marked from "marked"
+import placeHolderText from "./placeHolderText"
+
+import Editor from "./components/Editor"
 
 export default function App() {
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState(placeHolderText)
   const [output, setOutput] = useState("")
 
   function handleInputChange(e) {
@@ -20,14 +23,12 @@ export default function App() {
 
   return (
     <div>
-      <div>
-        <textarea
-          id="editor"
-          placeholder="put your text here"
-          onChange={handleInputChange}
-        />
-      </div>
-      <div id="preview" dangerouslySetInnerHTML={{ __html: output }} />
+      <Editor input={input} handleInputChange={handleInputChange} />
+      <div
+        className="output"
+        id="preview"
+        dangerouslySetInnerHTML={{ __html: output }}
+      />
     </div>
   )
 }
