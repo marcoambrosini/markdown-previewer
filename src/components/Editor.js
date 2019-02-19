@@ -3,8 +3,10 @@ import styled from "styled-components"
 
 export default function Editor(props) {
   return (
-    <form className="editor">
+    <form>
       <textarea
+        rows="50"
+        cols="50"
         id="editor"
         placeholder={props.input}
         onChange={props.handleInputChange}

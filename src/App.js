@@ -22,8 +22,12 @@ export default function App() {
   })
 
   return (
-    <div>
-      <Editor input={input} handleInputChange={handleInputChange} />
+    <div className="App">
+      <Editor
+        className="editor"
+        input={input}
+        handleInputChange={handleInputChange}
+      />
       <div
         className="output"
         id="preview"
