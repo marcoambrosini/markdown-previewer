@@ -4,6 +4,7 @@ import marked from "marked"
 import placeHolderText from "./placeHolderText"
 
 import Editor from "./components/Editor"
+import Header from "./components/Header"
 
 export default function App() {
   const [input, setInput] = useState(placeHolderText)
@@ -23,6 +24,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <Header />
       <Editor
         className="editor"
         input={input}
