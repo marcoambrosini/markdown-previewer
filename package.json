@@ -6,6 +6,7 @@
     "marked": "^0.6.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-draggable": "^3.2.1",
     "react-scripts": "2.1.5",
     "styled-components": "^4.1.3"
   },

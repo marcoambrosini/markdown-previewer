@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./App.css"
 import marked from "marked"
 import placeHolderText from "./placeHolderText"
+import Draggable, { DraggableCore } from "react-draggable"
 
 import Editor from "./components/Editor"
 import Header from "./components/Header"
@@ -25,6 +26,7 @@ export default function App() {
   return (
     <div className="App">
       <Header />
+
       <Editor
         className="editor"
         input={input}
